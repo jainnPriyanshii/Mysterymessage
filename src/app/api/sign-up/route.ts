@@ -29,19 +29,21 @@ export async function POST(request: Request) {
         const verifyCode = Math.floor(100000 + Math.random() * 900000).toString()
 
         if (exsistingUserbyEmail) {
-           if(exsistingUserbyEmail.isVerified){return Response.json({success:false,
+           if(exsistingUserbyEmail.isVerified){
+            return Response.json({
+            success:false,
             message: "This Email is already registered."},{status:400}
         )}
-        }
+        
 
         else{
             const hashedpassword = await bcrypt.hash(password, 10)
-            exsistingUserbyEmail.password =hashedpassword ;
-            exsistingUserbyEmail.verifycode = verifycode;
+            exsistingUserbyEmail.password = hashedpassword ;
+            exsistingUserbyEmail.verifyCode = verifyCode;
             exsistingUserbyEmail.verifyCodeExpiry = new Date(Date.now() + 3600000);
            await exsistingUserbyEmail.save()
         }
-
+    }
         else {
             const hashedpassword = await bcrypt.hash(password, 10)
 
