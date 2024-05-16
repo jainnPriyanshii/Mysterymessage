@@ -1,5 +1,5 @@
-import { promises } from "dns"; 
 import mongoose from "mongoose";
+console.log(process.env.MONGODB_URI);
 
 
 type Connectionobject = {
@@ -15,7 +15,7 @@ async function dbconnect(): Promise<void>{
     }
 
     try{
-     const db =   await mongoose.connect(process.env.MONGODB_URI || '',{})
+     const db =   await mongoose.connect('mongodb+srv://priyanshijain664:priyanshi162024@mmcluster.v9kit4i.mongodb.net/?retryWrites=true&w=majority&appName=mmcluster')
     
       connection.isConnected = db.connections[0].readyState
       console.log(db.connection)

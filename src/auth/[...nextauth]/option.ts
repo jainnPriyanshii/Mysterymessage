@@ -3,8 +3,6 @@ import bcrypt from 'bcryptjs';
 import UserModel from "@/models/user";
 import CredentialsProvider from "next-auth/providers/credentials";
 import dbconnect from "@/lib/dbconnect";
-import { connect } from "net";
-import { error } from "console";
 import Email from "next-auth/providers/email";
 
 
