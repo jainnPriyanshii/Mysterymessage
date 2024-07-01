@@ -1,5 +1,5 @@
 import dbconnect from "@/lib/dbconnect";
-import UserModel from "@/models/user";
+import UserModel from "@/models/user";  
 import bcrypt from 'bcryptjs'
 import { sendVerificationEmail } from "@/helpers/sendVerificationEmail";
 
@@ -93,3 +93,4 @@ export async function POST(request: Request) {
         }
     }
 }
+
