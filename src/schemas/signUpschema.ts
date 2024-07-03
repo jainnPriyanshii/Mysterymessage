@@ -11,6 +11,6 @@ export const usernameValidation = z
             username:  usernameValidation,
             email: z.string().email({ message:'Invalid email address'
             }),
-            passsword : z.string().min(6,{message: "password must be atleast 6 characters"})
+            password : z.string().min(6,{message: "password must be atleast 6 characters"})
 
         })
